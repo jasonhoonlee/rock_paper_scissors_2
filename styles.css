@@ -8,3 +8,7 @@ html {
 body {
   background-color: cadetblue;
 }
+
+header .container ul {
+  list-style: none;
+}
