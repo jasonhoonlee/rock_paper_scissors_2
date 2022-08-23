@@ -32,6 +32,10 @@ header .container ul {
   display: flex;
 }
 
+header .container ul img {
+  width: 40px;
+}
+
 
 /* MAIN */
 
