@@ -11,4 +11,6 @@ body {
 
 header .container ul {
   list-style: none;
+  display: flex;
+  justify-content: center;
 }
