@@ -9,6 +9,10 @@ body {
   background-color: cadetblue;
 }
 
+
+
+/* HEADER */
+
 header .container ul {
   list-style: none;
   display: flex;
@@ -28,4 +32,13 @@ header .container  {
 header .container ul {
   padding-left: 10px;
   align-items: center;
+}
+
+/* FOOTER */
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
