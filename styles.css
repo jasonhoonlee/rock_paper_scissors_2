@@ -30,6 +30,8 @@ header .container {
 header .container ul {
   list-style: none;
   display: flex;
+  padding: 0;
+  margin: 10px;
 }
 
 header .container ul img {
