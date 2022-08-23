@@ -2,9 +2,9 @@ html {
   box-sizing: border-box;
   font-family: 'Courier New', Courier, monospace;
   font-size: 15px;
+  text-align: center;
 }
 
 body {
   background-color: cadetblue;
 }
-
