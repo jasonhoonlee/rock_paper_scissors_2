@@ -68,6 +68,11 @@ main .card-message .container {
   justify-content: center;
 }
 
+main .card-message .container p{
+  margin: 5px 0px;
+
+}
+
 main .score-chart {
   display: flex;
   gap: 10px;
