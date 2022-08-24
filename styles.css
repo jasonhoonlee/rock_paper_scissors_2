@@ -92,3 +92,9 @@ footer {
   align-items: center;
   gap: 10px;
 }
+
+footer .github-link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
