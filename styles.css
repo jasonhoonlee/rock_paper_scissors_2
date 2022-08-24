@@ -98,3 +98,12 @@ footer .github-link {
   align-items: center;
   gap: 5px;
 }
+
+footer a {
+  text-decoration: none;
+  color: black;
+}
+
+footer a:hover {
+  color: pink;
+}
