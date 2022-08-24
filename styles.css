@@ -70,7 +70,8 @@ main .card-message .container {
 
 main .card-message .container p{
   margin: 5px 0px;
-
+  color: pink;
+  font-weight: bolder;
 }
 
 main .score-chart {
