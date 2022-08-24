@@ -56,6 +56,11 @@ main .container {
   justify-content: space-between;
 }
 
+main .container section {
+  width: 40vmin;
+  height: 40vmin;
+}
+
 
 
 
