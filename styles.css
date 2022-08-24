@@ -62,6 +62,9 @@ main .container section {
   height: 40vmin;
 }
 
+main .score-chart {
+  display: flex;
+}
 
 
 
