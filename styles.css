@@ -62,6 +62,12 @@ main .container section {
   height: 40vmin;
 }
 
+main .card-message .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 main .score-chart {
   display: flex;
   gap: 10px;
