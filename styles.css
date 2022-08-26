@@ -122,4 +122,5 @@ footer a:hover {
 .start-modal form {
   display: flex;
   flex-direction: column;
+  gap: 10px;
 }
