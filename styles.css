@@ -116,7 +116,13 @@ footer a:hover {
   padding: 20px;
   width: 60%;
   text-align: center;
-  align-self: center;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+
 }
 
 .start-modal form {
@@ -125,8 +131,6 @@ footer a:hover {
   gap: 10px;
 }
 
-/* CENTER NAME INPUT */
-/* SECTION OUT FORMS INPUTS */
 
 .start-modal form #player-name {
   width: 40%;
@@ -142,3 +146,4 @@ footer a:hover {
   width: 20%;
   align-self: center;
 }
+
