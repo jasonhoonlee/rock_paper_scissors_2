@@ -107,3 +107,15 @@ footer a {
 footer a:hover {
   color: pink;
 }
+
+
+/* MODAL */
+
+.start-modal {
+  background-color: lightgray;
+  padding: 20px;
+  width: 60%;
+  text-align: center;
+  align-self: center;
+}
+
