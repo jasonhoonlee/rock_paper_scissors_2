@@ -124,6 +124,10 @@ footer a:hover {
   transform: translate(-50%, -50%);
 }
 
+.start-modal p {
+  font-weight: bolder;
+}
+
 .start-modal form {
   display: flex;
   flex-direction: column;
