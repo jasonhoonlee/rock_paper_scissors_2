@@ -137,3 +137,8 @@ footer a:hover {
   width: 10%;
   align-self: center;
 }
+
+.start-modal form .start-btn {
+  width: 20%;
+  align-self: center;
+}
