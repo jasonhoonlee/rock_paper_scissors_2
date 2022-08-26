@@ -132,3 +132,8 @@ footer a:hover {
   width: 40%;
   align-self: center;
 }
+
+.start-modal form #match-point {
+  width: 10%;
+  align-self: center;
+}
