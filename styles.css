@@ -125,6 +125,10 @@ footer a:hover {
   gap: 10px;
 }
 
+/* CENTER NAME INPUT */
+/* SECTION OUT FORMS INPUTS */
+
 .start-modal form #player-name {
   width: 40%;
+  align-self: center;
 }
