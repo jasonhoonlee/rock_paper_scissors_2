@@ -116,13 +116,12 @@ footer a:hover {
   padding: 20px;
   width: 60%;
   text-align: center;
-
+  border: dashed pink 2px;
+  box-shadow: 2px 2px black;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-
-
 }
 
 .start-modal form {
