@@ -52,6 +52,10 @@ function updateMatchPoint(matchPoint) {
   //show round
   //show score
   //show button
+function updatePlayButton() {
+  const playRoundBtn = modal.querySelector('.play-round-btn');
+  if (game.firstPlay === false)  playRoundBtn.textContent = 'Play next round';
+}
 
 function updateCurrentScore(winner) {
   if (winner === 'player') game.playerScore += 1;
