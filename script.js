@@ -45,6 +45,15 @@ function updateMatchPoint(matchPoint) {
   matchPointSetting.textContent = `Match Point: ${matchPoint}`;
 }
 
+function updateCurrentRound() {
+  if (game.firstPlay === false) {
+    game.currentRound += 1;
+  } else {
+    game.firstPlay = false;
+  }
+  const currentRoundUI = cardMessage.querySelector('.current-round-number');
+  currentRoundUI.textContent = `Current round: ${game.currentRound}`;
+}
 
 function customizeGameSettings(name, matchPoint) {
   updatePlayerName(name);
