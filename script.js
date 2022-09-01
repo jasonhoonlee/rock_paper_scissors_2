@@ -19,4 +19,8 @@ function updatePlayerName(name) {
   playerCardName.textContent = `${name}`;
 }
 
+function updateMatchPoint(matchPoint) {
+  const matchPointSetting = cardMessage.querySelector('.match-point');
+  matchPointSetting.textContent = `Match Point: ${matchPoint}`;
+}
 
