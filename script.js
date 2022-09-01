@@ -24,3 +24,8 @@ function updateMatchPoint(matchPoint) {
   matchPointSetting.textContent = `Match Point: ${matchPoint}`;
 }
 
+function customizeGameSettings(name, matchPoint) {
+  updatePlayerName(name);
+  updateMatchPoint(matchPoint);
+}
+
