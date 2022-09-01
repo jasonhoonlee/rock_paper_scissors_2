@@ -2,7 +2,7 @@
 const modal = document.querySelector('.start-modal');
 const overlay = document.querySelector('.overlay');
 const playerCard = document.querySelector('.card-player');
-
+const cardMessage = document.querySelector('.card-message');
 
 
 function clearModal() {
@@ -14,8 +14,9 @@ function clearOverlay() {
  overlay.classList.remove('on');
 }
 
-function updateName(name) {
+function updatePlayerName(name) {
   const playerCardName = playerCard.querySelector('h2');
   playerCardName.textContent = `${name}`;
 }
+
 
