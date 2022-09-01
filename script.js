@@ -18,7 +18,12 @@ modalForm.addEventListener('submit', (e) => {
 })
 
 
-
+const game = {
+  playerScore: 0,
+  computerScore: 0,
+  currentRound: 1,
+  firstPlay: true,
+}
 
 
 function clearModal() {
@@ -39,6 +44,7 @@ function updateMatchPoint(matchPoint) {
   const matchPointSetting = cardMessage.querySelector('.match-point');
   matchPointSetting.textContent = `Match Point: ${matchPoint}`;
 }
+
 
 function customizeGameSettings(name, matchPoint) {
   updatePlayerName(name);
