@@ -3,6 +3,22 @@ const modal = document.querySelector('.start-modal');
 const overlay = document.querySelector('.overlay');
 const playerCard = document.querySelector('.card-player');
 const cardMessage = document.querySelector('.card-message');
+const modalForm = modal.querySelector('form');
+
+
+
+
+modalForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  clearModal();
+  clearOverlay();
+  const name = e.target['player-name'].value;
+  const points = e.target['match-point'].value;
+  customizeGameSettings(name, points);
+})
+
+
+
 
 
 function clearModal() {
