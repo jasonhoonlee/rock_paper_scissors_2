@@ -45,15 +45,35 @@ function updateMatchPoint(matchPoint) {
   matchPointSetting.textContent = `Match Point: ${matchPoint}`;
 }
 
+
+
+//START GAME
+
+  //show round
+  //show score
+  //show button
+
+function updateCurrentScore(winner) {
+  if (winner === 'player') game.playerScore += 1;
+  else game.computerScore += 1;
+
+  const currentScoreUI = cardMessage.querySelector('.current-score');
+  currentScoreUI.textContent = `${game.playerScore} - ${game.computerScore}`;
+}
+
 function updateCurrentRound() {
-  if (game.firstPlay === false) {
-    game.currentRound += 1;
-  } else {
-    game.firstPlay = false;
-  }
+  if (game.firstPlay === false) game.currentRound += 1;
+  else game.firstPlay = false;
+
   const currentRoundUI = cardMessage.querySelector('.current-round-number');
   currentRoundUI.textContent = `Current round: ${game.currentRound}`;
 }
+
+
+
+
+
+
 
 function customizeGameSettings(name, matchPoint) {
   updatePlayerName(name);
