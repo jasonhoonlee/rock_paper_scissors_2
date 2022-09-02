@@ -70,9 +70,14 @@ function updateCurrentRound() {
   currentRoundUI.textContent = `Current round: ${game.currentRound}`;
 }
 
-
 function customizeGameSettings(name, matchPoint) {
   updatePlayerName(name);
   updateMatchPoint(matchPoint);
 }
+
+function startGame() {
+  updateCurrentRound();
+  updateCurrentScore();
+}
+
 
