@@ -92,20 +92,20 @@ function updateCurrentRound() {
 }
 
 
-
-
-
 function callOutRockPaperScissors() {
-
   const gameCall = cardMessage.querySelector('.game-call');
   setTimeout(() => gameCall.textContent += 'ROCK! ', 500);
   setTimeout(() => gameCall.textContent += 'PAPER! ', 1500);
   setTimeout(() => gameCall.textContent += 'SCISSORS!', 2500);
   setTimeout(() => gameCall.textContent = '', 3500);
-
 }
 
 
+function randomlyGenerateWeapons(){
+  const weapons = ['rock','paper','scissors'];
+  const randomIndex = Math.floor(Math.random() * 3);
+  return weapons[randomIndex];
+}
 
 
 function customizeGameSettings(name, matchPoint) {
