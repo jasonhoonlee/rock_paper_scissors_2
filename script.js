@@ -57,14 +57,12 @@ function updatePlayButton() {
 }
 
 
-
-
-
 function updateCurrentScore(winner) {
-  if (winner === 'player') game.playerScore += 1;
-  else game.computerScore += 1;
-
   const currentScoreUI = cardMessage.querySelector('.current-score');
+  if (!game.firstPlay) {
+    if (winner === 'player') game.playerScore += 1;
+    else game.computerScore += 1;
+  }
   currentScoreUI.textContent = `${game.playerScore} - ${game.computerScore}`;
 }
 
