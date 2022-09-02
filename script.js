@@ -15,6 +15,7 @@ modalForm.addEventListener('submit', (e) => {
   const name = e.target['player-name'].value;
   const points = e.target['match-point'].value;
   customizeGameSettings(name, points);
+  startGame();
 })
 
 
@@ -78,6 +79,7 @@ function customizeGameSettings(name, matchPoint) {
 function startGame() {
   updateCurrentRound();
   updateCurrentScore();
+  game.firstPlay = false;
 }
 
 
