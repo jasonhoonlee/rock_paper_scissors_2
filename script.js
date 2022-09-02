@@ -3,6 +3,7 @@ const modal = document.querySelector('.start-modal');
 const overlay = document.querySelector('.overlay');
 const playerCard = document.querySelector('.card-player');
 const cardMessage = document.querySelector('.card-message');
+const computerCard = document.querySelector('.card-computer');
 const modalForm = modal.querySelector('form');
 // const playRoundBtn = document.querySelector('.play-round-btn');
 
@@ -101,7 +102,7 @@ function callOutRockPaperScissors() {
 }
 
 
-function randomlyGenerateWeapons(){
+function randomlyGenerateWeapon(){
   const weapons = ['rock','paper','scissors'];
   const randomIndex = Math.floor(Math.random() * 3);
   return weapons[randomIndex];
