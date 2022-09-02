@@ -47,15 +47,18 @@ function updateMatchPoint(matchPoint) {
 
 
 
-//START GAME
 
-  //show round
-  //show score
-  //show button
+
 function updatePlayButton() {
-  const playRoundBtn = modal.querySelector('.play-round-btn');
-  if (game.firstPlay === false)  playRoundBtn.textContent = 'Play next round';
+  if (game.firstPlay === false) {
+    const playRoundBtn = modal.querySelector('.play-round-btn');
+    playRoundBtn.textContent = 'Play next round';
+  }
 }
+
+
+
+
 
 function updateCurrentScore(winner) {
   if (winner === 'player') game.playerScore += 1;
@@ -72,9 +75,6 @@ function updateCurrentRound() {
   const currentRoundUI = cardMessage.querySelector('.current-round-number');
   currentRoundUI.textContent = `Current round: ${game.currentRound}`;
 }
-
-
-
 
 
 
