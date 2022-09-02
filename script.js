@@ -4,7 +4,7 @@ const overlay = document.querySelector('.overlay');
 const playerCard = document.querySelector('.card-player');
 const cardMessage = document.querySelector('.card-message');
 const modalForm = modal.querySelector('form');
-
+// const playRoundBtn = document.querySelector('.play-round-btn');
 
 
 
@@ -16,7 +16,27 @@ modalForm.addEventListener('submit', (e) => {
   const points = e.target['match-point'].value;
   customizeGameSettings(name, points);
   startGame();
-})
+});
+
+
+// playRoundBtn.addEventListener('click', () => {
+
+//   //call out R,P,S
+//   callOutRockPaperScissors();
+//   setTimeout(() => {
+
+//     //randomlyGenerateWeapons
+//     //displayWeapons
+//     //determineWinner
+//     //displayRoundResult
+
+//     updateCurrentRound();
+//     updateCurrentScore(winner);
+//     updatePlayButton();
+
+//   }, 3500)
+
+// });
 
 
 const game = {
@@ -70,6 +90,23 @@ function updateCurrentRound() {
   const currentRoundUI = cardMessage.querySelector('.current-round-number');
   currentRoundUI.textContent = `Current round: ${game.currentRound}`;
 }
+
+
+
+
+
+function callOutRockPaperScissors() {
+
+  const gameCall = cardMessage.querySelector('.game-call');
+  setTimeout(() => gameCall.textContent += 'ROCK! ', 500);
+  setTimeout(() => gameCall.textContent += 'PAPER! ', 1500);
+  setTimeout(() => gameCall.textContent += 'SCISSORS!', 2500);
+  setTimeout(() => gameCall.textContent = '', 3500);
+
+}
+
+
+
 
 function customizeGameSettings(name, matchPoint) {
   updatePlayerName(name);
