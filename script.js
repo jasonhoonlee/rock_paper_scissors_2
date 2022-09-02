@@ -46,9 +46,6 @@ function updateMatchPoint(matchPoint) {
 }
 
 
-
-
-
 function updatePlayButton() {
   if (!game.firstPlay) {
     const playRoundBtn = modal.querySelector('.play-round-btn');
@@ -56,13 +53,13 @@ function updatePlayButton() {
   }
 }
 
-
 function updateCurrentScore(winner) {
-  const currentScoreUI = cardMessage.querySelector('.current-score');
   if (!game.firstPlay) {
     if (winner === 'player') game.playerScore += 1;
     else game.computerScore += 1;
   }
+
+  const currentScoreUI = cardMessage.querySelector('.current-score');
   currentScoreUI.textContent = `${game.playerScore} - ${game.computerScore}`;
 }
 
@@ -72,8 +69,6 @@ function updateCurrentRound() {
   const currentRoundUI = cardMessage.querySelector('.current-round-number');
   currentRoundUI.textContent = `Current round: ${game.currentRound}`;
 }
-
-
 
 
 function customizeGameSettings(name, matchPoint) {
