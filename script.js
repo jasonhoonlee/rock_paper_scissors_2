@@ -67,8 +67,7 @@ function updateCurrentScore(winner) {
 }
 
 function updateCurrentRound() {
-  if (game.firstPlay === false) game.currentRound += 1;
-  else game.firstPlay = false;
+  if (!game.firstPlay) game.currentRound += 1;
 
   const currentRoundUI = cardMessage.querySelector('.current-round-number');
   currentRoundUI.textContent = `Current round: ${game.currentRound}`;
