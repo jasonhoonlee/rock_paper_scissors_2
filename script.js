@@ -50,7 +50,7 @@ function updateMatchPoint(matchPoint) {
 
 
 function updatePlayButton() {
-  if (game.firstPlay === false) {
+  if (!game.firstPlay) {
     const playRoundBtn = modal.querySelector('.play-round-btn');
     playRoundBtn.textContent = 'Play next round';
   }
