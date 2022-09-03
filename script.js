@@ -101,12 +101,30 @@ function callOutRockPaperScissors() {
   setTimeout(() => gameCall.textContent = '', 3500);
 }
 
-
 function randomlyGenerateWeapon(){
   const weapons = ['rock','paper','scissors'];
   const randomIndex = Math.floor(Math.random() * 3);
   return weapons[randomIndex];
 }
+
+
+
+function createCompImgElement() {
+  const randomWeapon = randomlyGenerateWeapon();
+  const imgTag = document.createElement('img');
+  imgTag.setAttribute('src', `assets/img/${randomWeapon}.png`);
+  imgTag.setAttribute('alt', `${randomWeapon}`);
+  return imgTag;
+}
+
+
+function displayCompWeapon() {
+  const computerWeaponUI = computerCard.querySelector('.weapon-image');
+  const compImgElement = createCompImgElement();
+  computerWeaponUI.append(compImgElement);
+}
+
+
 
 
 function customizeGameSettings(name, matchPoint) {
