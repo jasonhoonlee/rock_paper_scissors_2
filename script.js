@@ -114,6 +114,7 @@ function createCompImgElement() {
 function displayCompWeapon() {
   const computerWeaponUI = computerCard.querySelector('.weapon-image');
   const compImgElement = createCompImgElement();
+  computerWeaponUI.innerHTML = '';
   computerWeaponUI.append(compImgElement);
 }
 
