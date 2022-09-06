@@ -164,7 +164,7 @@ function displayRoundResult(roundResult) {
   } else if (roundResult === 'lose') {
     currentRoundResult.textContent = 'YOU LOSE THIS ROUND...';
   } else {
-    currentRoundResult.textContent = 'IT\'S A DRAW!';
+    currentRoundResult.textContent = 'IT\'S A DRAW THIS ROUND.';
   }
 }
 
