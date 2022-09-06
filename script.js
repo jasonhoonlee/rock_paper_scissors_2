@@ -61,10 +61,6 @@ function updateCurrentScore(roundResult) {
   currentScoreUI.textContent = `${game.playerScore} - ${game.computerScore}`;
 }
 
-function updateCurrentRound() {
-  const currentRoundUI = cardMessage.querySelector('.current-round-number');
-  currentRoundUI.textContent = `Current round: ${game.currentRound}`;
-}
 
 
 playRoundSection.addEventListener('click', (e) => {
@@ -76,8 +72,6 @@ playRoundSection.addEventListener('click', (e) => {
     //display weapon for computer
     displayCompWeapon();
 
-    // update Current Round
-    updateCurrentRound();
     // determine round result
     const roundResult = determineRoundResult();
     // update Current score
