@@ -52,7 +52,7 @@ function updateMatchPoint(matchPoint) {
 function updateCurrentScore(roundResult) {
   if (game.firstPlay === false) {
     if (roundResult === 'win') game.playerScore += 1;
-    else if (roundResult = 'lose' ) game.computerScore += 1;
+    else if (roundResult === 'lose' ) game.computerScore += 1;
     else return;
   } else {
     game.firstPlay = true;
