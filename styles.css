@@ -158,3 +158,28 @@ footer a:hover {
   opacity: .5;
 }
 
+
+/* WEAPON BUTTONS */
+section.play-round {
+  box-sizing: border-box;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.play-round .btn {
+  box-sizing: border-box;
+  width: 11vh;
+  height: 11vh;
+  background-color: lightcyan;
+  border: 5px palevioletred solid;
+  border-radius: 50%;
+  padding: 5px;
+
+}
+
+.play-round img {
+  width: 100%;
+  border-radius: 50%;
+}
