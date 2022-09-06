@@ -101,13 +101,6 @@ function randomlyGenerateWeapon(){
   return weapons[randomIndex];
 }
 
-function createPlayerImgElement(weapon) {
-  const imgTag = document.createElement('img');
-  imgTag.setAttribute('src', `assets/img/${randomWeapon}.png`);
-  imgTag.setAttribute('alt', `${randomWeapon}`);
-  return imgTag;
-}
-
 function createCompImgElement() {
   const randomWeapon = randomlyGenerateWeapon();
   const imgTag = document.createElement('img');
@@ -116,7 +109,6 @@ function createCompImgElement() {
   return imgTag;
 }
 
-
 function displayCompWeapon() {
   const computerWeaponUI = computerCard.querySelector('.weapon-image');
   const compImgElement = createCompImgElement();
@@ -124,8 +116,19 @@ function displayCompWeapon() {
   computerWeaponUI.append(compImgElement);
 }
 
+function createPlayerImgElement(weapon) {
+  const imgTag = document.createElement('img');
+  imgTag.setAttribute('src', `assets/img/${weapon}.png`);
+  imgTag.setAttribute('alt', `${weapon}`);
+  return imgTag;
+}
 
-
+function displayPlayerWeapon(weapon) {
+  const playerWeaponUI = playerCard.querySelector('.weapon-image');
+  const playerWeaponImgElement = createPlayerImgElement(weapon);
+  playerWeaponUI.innerHTML = '';
+  playerWeaponUI.append(playerWeaponImgElement);
+}
 
 
 
