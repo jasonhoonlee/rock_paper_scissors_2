@@ -186,3 +186,12 @@ section.play-round {
   width: 100%;
   border-radius: 50%;
 }
+
+
+
+  /* WHY CAN'T A COLOR THIS TAG CONTENT  */
+  main .card-message .container p.current-round-result  {
+  color: red;
+  background-color: white;
+  border: black solid 2px;
+}
