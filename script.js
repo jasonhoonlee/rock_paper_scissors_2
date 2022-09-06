@@ -25,7 +25,6 @@ const game = {
   playerWeapon: null,
   computerWeapon: null,
   currentRound: 1,
-  firstPlay: true,
 }
 
 
@@ -50,18 +49,16 @@ function updateMatchPoint(matchPoint) {
 
 
 function updateCurrentScore(roundResult) {
-  if (!game.firstPlay) {
     if (roundResult === 'win') game.playerScore += 1;
     else if (roundResult = 'lose' )game.computerScore += 1;
     else return;
-  }
+
   const currentScoreUI = cardMessage.querySelector('.current-score');
   currentScoreUI.textContent = `${game.playerScore} - ${game.computerScore}`;
 }
 
 function updateCurrentRound() {
-  if (!game.firstPlay) game.currentRound += 1;
-
+  console.log('once')
   const currentRoundUI = cardMessage.querySelector('.current-round-number');
   currentRoundUI.textContent = `Current round: ${game.currentRound}`;
 }
@@ -71,21 +68,34 @@ function updateCurrentRound() {
 // ***********************
 
 
+// firstPLay property is uneccessary
+
+
+
+
+
+
 playRoundSection.addEventListener('click', (e) => {
 
-  //if target is a weapon btn call RPS
-
-  //display weapon for player
-  const clickedWeapon = e.target.id;
-  displayPlayerWeapon(clickedWeapon);
-  //display weapon for computer
-  displayCompWeapon()
+  if ( e.target.tagName === 'IMG') {
 
 
-  // update Current Round
-  // determine Winner
-  // update Current score
-  // update Round Result
+
+    //display weapon for player
+    const clickedWeapon = e.target.id;
+    displayPlayerWeapon(clickedWeapon);
+    //display weapon for computer
+    displayCompWeapon();
+
+    // update Current Round
+    updateCurrentRound();
+    // determine round result
+    const roundResult = determineRoundResult();
+    // update Current score
+    updateCurrentScore(roundResult);
+
+
+  }
 
 });
 
