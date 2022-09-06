@@ -176,7 +176,10 @@ section.play-round {
   border: 5px palevioletred solid;
   border-radius: 50%;
   padding: 5px;
+}
 
+.play-round .btn:hover {
+  border: 5px lime solid;
 }
 
 .play-round img {
