@@ -49,12 +49,12 @@ function updateMatchPoint(matchPoint) {
 }
 
 
-function updateCurrentScore(winner) {
+function updateCurrentScore(roundResult) {
   if (!game.firstPlay) {
-    if (winner === 'player') game.playerScore += 1;
-    else game.computerScore += 1;
+    if (roundResult === 'win') game.playerScore += 1;
+    else if (roundResult = 'lose' )game.computerScore += 1;
+    else return;
   }
-
   const currentScoreUI = cardMessage.querySelector('.current-score');
   currentScoreUI.textContent = `${game.playerScore} - ${game.computerScore}`;
 }
