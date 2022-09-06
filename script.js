@@ -74,7 +74,8 @@ playRoundSection.addEventListener('click', (e) => {
   //if target is a weapon btn call RPS
 
   //display weapon for player
-
+  const clickedWeapon = e.target.id;
+  displayPlayerWeapon(clickedWeapon)
   //display weapon for computer
   displayCompWeapon()
 
@@ -129,8 +130,6 @@ function displayPlayerWeapon(weapon) {
   playerWeaponUI.innerHTML = '';
   playerWeaponUI.append(playerWeaponImgElement);
 }
-
-
 
 
 
