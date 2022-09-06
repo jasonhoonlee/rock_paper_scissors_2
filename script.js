@@ -22,6 +22,8 @@ modalForm.addEventListener('submit', (e) => {
 const game = {
   playerScore: 0,
   computerScore: 0,
+  playerWeapon: null,
+  computerWeapon: null,
   currentRound: 1,
   firstPlay: true,
 }
@@ -75,12 +77,13 @@ playRoundSection.addEventListener('click', (e) => {
 
   //display weapon for player
   const clickedWeapon = e.target.id;
-  displayPlayerWeapon(clickedWeapon)
+  displayPlayerWeapon(clickedWeapon);
   //display weapon for computer
   displayCompWeapon()
 
 
   // update Current Round
+  // determine Winner
   // update Current score
   // update Round Result
 
@@ -104,6 +107,7 @@ function randomlyGenerateWeapon(){
 
 function createCompImgElement() {
   const randomWeapon = randomlyGenerateWeapon();
+  game.computerWeapon = randomWeapon;
   const imgTag = document.createElement('img');
   imgTag.setAttribute('src', `assets/img/${randomWeapon}.png`);
   imgTag.setAttribute('alt', `${randomWeapon}`);
@@ -118,6 +122,7 @@ function displayCompWeapon() {
 }
 
 function createPlayerImgElement(weapon) {
+  game.playerWeapon = weapon;
   const imgTag = document.createElement('img');
   imgTag.setAttribute('src', `assets/img/${weapon}.png`);
   imgTag.setAttribute('alt', `${weapon}`);
@@ -131,6 +136,26 @@ function displayPlayerWeapon(weapon) {
   playerWeaponUI.append(playerWeaponImgElement);
 }
 
+
+function determineWinner() {
+  const playerWeapon = game.playerWeapon;
+  const computerWeapon = game.computerWeapon;
+
+  switch(playerWeapon) {
+    case 'rock':
+      if (computerWeapon === 'paper') return 'lose';
+      else if (computerWeapon === 'scissors') return 'win';
+      else return 'draw';
+    case 'paper':
+      if (computerWeapon === 'rock') return 'win';
+      else if (computerWeapon === 'scissors') return 'lose';
+      else return 'draw';
+    case 'scissors':
+      if (computerWeapon === 'paper') return 'win';
+      else if (computerWeapon === 'rock') return 'lose';
+      else return 'draw';
+  }
+}
 
 
 
