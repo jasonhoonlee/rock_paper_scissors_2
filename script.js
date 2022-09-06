@@ -137,7 +137,7 @@ function displayPlayerWeapon(weapon) {
 }
 
 
-function determineWinner() {
+function determineRoundResult() {
   const playerWeapon = game.playerWeapon;
   const computerWeapon = game.computerWeapon;
 
