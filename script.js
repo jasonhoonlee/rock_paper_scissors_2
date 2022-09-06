@@ -5,8 +5,7 @@ const playerCard = document.querySelector('.card-player');
 const cardMessage = document.querySelector('.card-message');
 const computerCard = document.querySelector('.card-computer');
 const modalForm = modal.querySelector('form');
-// const playRoundBtn = document.querySelector('.play-round-btn');
-
+// const playRoundSection = document.querySelector('.play-round');
 
 
 modalForm.addEventListener('submit', (e) => {
@@ -18,26 +17,6 @@ modalForm.addEventListener('submit', (e) => {
   customizeGameSettings(name, points);
   startGame();
 });
-
-
-// playRoundBtn.addEventListener('click', () => {
-
-//   //call out R,P,S
-//   callOutRockPaperScissors();
-//   setTimeout(() => {
-
-//     //randomlyGenerateWeapons
-//     //displayWeapons
-//     //determineWinner
-//     //displayRoundResult
-
-//     updateCurrentRound();
-//     updateCurrentScore(winner);
-//     updatePlayButton();
-
-//   }, 3500)
-
-// });
 
 
 const game = {
@@ -68,13 +47,6 @@ function updateMatchPoint(matchPoint) {
 }
 
 
-function updatePlayButton() {
-  if (!game.firstPlay) {
-    const playRoundBtn = modal.querySelector('.play-round-btn');
-    playRoundBtn.textContent = 'Play next round';
-  }
-}
-
 function updateCurrentScore(winner) {
   if (!game.firstPlay) {
     if (winner === 'player') game.playerScore += 1;
@@ -91,6 +63,25 @@ function updateCurrentRound() {
   const currentRoundUI = cardMessage.querySelector('.current-round-number');
   currentRoundUI.textContent = `Current round: ${game.currentRound}`;
 }
+
+
+
+// ***********************
+
+
+// playRoundSection.addEventListener('click', (e) => {
+//   //target is a weapon btn
+
+//   //randomlyGenerateWeapons
+//   //displayWeapons
+//   //determineWinner
+//   //displayRoundResult
+
+//   updateCurrentRound();
+//   updateCurrentScore(winner);
+
+// });
+
 
 
 function callOutRockPaperScissors() {
@@ -123,6 +114,17 @@ function displayCompWeapon() {
   const compImgElement = createCompImgElement();
   computerWeaponUI.append(compImgElement);
 }
+
+
+
+
+
+
+
+
+
+// ***********************
+
 
 
 
