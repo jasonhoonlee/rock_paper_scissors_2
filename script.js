@@ -81,6 +81,8 @@ playRoundSection.addEventListener('click', (e) => {
 
     // determine round result
     const roundResult = determineRoundResult();
+    //update round result
+    displayRoundResult(roundResult)
     // update Current score
     updateCurrentScore(roundResult);
   }
@@ -152,6 +154,17 @@ function determineRoundResult() {
       if (computerWeapon === 'paper') return 'win';
       else if (computerWeapon === 'rock') return 'lose';
       else return 'draw';
+  }
+}
+
+function displayRoundResult(roundResult) {
+  const currentRoundResult = cardMessage.querySelector('.current-round-result');
+  if (roundResult === 'win') {
+    currentRoundResult.textContent = 'YOU WIN THIS ROUND!';
+  } else if (roundResult === 'lose') {
+    currentRoundResult.textContent = 'YOU LOSE THIS ROUND...';
+  } else {
+    currentRoundResult.textContent = 'IT\'S A DRAW!';
   }
 }
 
