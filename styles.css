@@ -190,8 +190,13 @@ section.play-round {
 
 
   /* WHY CAN'T A COLOR THIS TAG CONTENT  */
-  main .card-message .container p.current-round-result  {
+main .card-message .container p.current-round-result  {
   color: red;
   background-color: white;
   border: black solid 2px;
+}
+
+main .card-message .container p.current-score {
+  color: black;
+  font-size: 25px;
 }
