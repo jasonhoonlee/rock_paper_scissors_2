@@ -61,6 +61,13 @@ function updateCurrentScore(roundResult) {
   currentScoreUI.textContent = `${game.playerScore} - ${game.computerScore}`;
 }
 
+function updateCurrentRound() {
+  if (game.firstPlay === false) {
+    game.currentRound += 1;
+  }
+  const currentRoundUI = cardMessage.querySelector('.current-round-number');
+  currentRoundUI.textContent = `Current round: ${game.currentRound}`;
+}
 
 
 playRoundSection.addEventListener('click', (e) => {
