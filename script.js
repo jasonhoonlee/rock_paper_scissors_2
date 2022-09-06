@@ -5,7 +5,7 @@ const playerCard = document.querySelector('.card-player');
 const cardMessage = document.querySelector('.card-message');
 const computerCard = document.querySelector('.card-computer');
 const modalForm = modal.querySelector('form');
-// const playRoundSection = document.querySelector('.play-round');
+const playRoundSection = document.querySelector('.play-round');
 
 
 modalForm.addEventListener('submit', (e) => {
@@ -69,18 +69,21 @@ function updateCurrentRound() {
 // ***********************
 
 
-// playRoundSection.addEventListener('click', (e) => {
-//   //target is a weapon btn
+playRoundSection.addEventListener('click', (e) => {
 
-//   //randomlyGenerateWeapons
-//   //displayWeapons
-//   //determineWinner
-//   //displayRoundResult
+  //if target is a weapon btn call RPS
 
-//   updateCurrentRound();
-//   updateCurrentScore(winner);
+  //display weapon for player
 
-// });
+  //display weapon for computer
+  displayCompWeapon()
+
+
+  // update Current Round
+  // update Current score
+  // update Round Result
+
+});
 
 
 
@@ -97,7 +100,6 @@ function randomlyGenerateWeapon(){
   const randomIndex = Math.floor(Math.random() * 3);
   return weapons[randomIndex];
 }
-
 
 
 function createCompImgElement() {
