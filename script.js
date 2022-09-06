@@ -20,6 +20,7 @@ modalForm.addEventListener('submit', (e) => {
 
 
 const game = {
+  firstPlay: true,
   playerScore: 0,
   computerScore: 0,
   playerWeapon: null,
@@ -49,38 +50,23 @@ function updateMatchPoint(matchPoint) {
 
 
 function updateCurrentScore(roundResult) {
-    if (roundResult === 'win') game.playerScore += 1;
-    else if (roundResult = 'lose' )game.computerScore += 1;
-    else return;
+  if (roundResult === 'win') game.playerScore += 1;
+  else if (roundResult = 'lose' )game.computerScore += 1;
+  else return;
 
   const currentScoreUI = cardMessage.querySelector('.current-score');
   currentScoreUI.textContent = `${game.playerScore} - ${game.computerScore}`;
 }
 
 function updateCurrentRound() {
-  console.log('once')
   const currentRoundUI = cardMessage.querySelector('.current-round-number');
   currentRoundUI.textContent = `Current round: ${game.currentRound}`;
 }
 
 
-
-// ***********************
-
-
-// firstPLay property is uneccessary
-
-
-
-
-
-
 playRoundSection.addEventListener('click', (e) => {
 
   if ( e.target.tagName === 'IMG') {
-
-
-
     //display weapon for player
     const clickedWeapon = e.target.id;
     displayPlayerWeapon(clickedWeapon);
@@ -93,8 +79,6 @@ playRoundSection.addEventListener('click', (e) => {
     const roundResult = determineRoundResult();
     // update Current score
     updateCurrentScore(roundResult);
-
-
   }
 
 });
@@ -166,13 +150,6 @@ function determineRoundResult() {
       else return 'draw';
   }
 }
-
-
-
-// ***********************
-
-
-
 
 
 function customizeGameSettings(name, matchPoint) {
