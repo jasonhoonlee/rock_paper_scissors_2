@@ -101,6 +101,12 @@ function randomlyGenerateWeapon(){
   return weapons[randomIndex];
 }
 
+function createPlayerImgElement(weapon) {
+  const imgTag = document.createElement('img');
+  imgTag.setAttribute('src', `assets/img/${randomWeapon}.png`);
+  imgTag.setAttribute('alt', `${randomWeapon}`);
+  return imgTag;
+}
 
 function createCompImgElement() {
   const randomWeapon = randomlyGenerateWeapon();
