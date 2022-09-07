@@ -64,9 +64,11 @@ function updateCurrentScore(roundResult) {
 function updateCurrentRound() {
   if (game.firstPlay === false) {
     game.currentRound += 1;
+  } else {
+    game.firstPlay = false ;
   }
   const currentRoundUI = cardMessage.querySelector('.current-round-number');
-  currentRoundUI.textContent = `Current round: ${game.currentRound}`;
+  currentRoundUI.textContent = `ROUND ${game.currentRound}`;
 }
 
 
@@ -85,6 +87,8 @@ playRoundSection.addEventListener('click', (e) => {
     displayRoundResult(roundResult)
     // update Current score
     updateCurrentScore(roundResult);
+    //update current round
+    updateCurrentRound();
   }
 
 });
