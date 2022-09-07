@@ -194,6 +194,9 @@ main .card-message .container p.current-round-result  {
   background-color: white;
   border: black solid 2px;
   height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 main .card-message .container p.current-score {
