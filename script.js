@@ -14,12 +14,11 @@ modalForm.addEventListener('submit', (e) => {
   const name = e.target['player-name'].value;
   const points = e.target['match-point'].value;
   customizeGameSettings(name, points);
-  startGame();
+  initializeGame();
 });
 
 
 const game = {
-  firstPlay: true,
   playerScore: 0,
   computerScore: 0,
   playerWeapon: null,
@@ -79,7 +78,6 @@ playRoundSection.addEventListener('click', (e) => {
     displayRoundResult(roundResult)
     // update Current score
     updateCurrentScore(roundResult);
-    game.firstPlay = false;
   }
 
 });
@@ -169,9 +167,12 @@ function customizeGameSettings(name, matchPoint) {
   updateMatchPoint(matchPoint);
 }
 
-function startGame() {
-  updateCurrentRound();
-  updateCurrentScore();
+function initializeGame() {
+  const currentRound = cardMessage.querySelector('.current-round-number');
+  const currentScore = cardMessage.querySelector('.current-score');
+  currentRound.textContent = `ROUND: ${game.currentRound}`;
+  currentScore.textContent = `${game.playerScore} - ${game.computerScore}`;
 }
+
 
 
