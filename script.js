@@ -19,6 +19,7 @@ modalForm.addEventListener('submit', (e) => {
 
 
 const game = {
+  firstPlay: true,
   playerScore: 0,
   computerScore: 0,
   playerWeapon: null,
@@ -55,7 +56,7 @@ function updateCurrentScore(roundResult) {
 }
 
 function updateCurrentRound() {
-  game.currentRound += 1;
+  if (!game.firstPlay) game.currentRound += 1;
   const currentRoundUI = cardMessage.querySelector('.current-round-number');
   currentRoundUI.textContent = `ROUND ${game.currentRound}`;
 }
@@ -78,6 +79,7 @@ playRoundSection.addEventListener('click', (e) => {
     displayRoundResult(roundResult)
     // update Current score
     updateCurrentScore(roundResult);
+    game.firstPlay = false;
   }
 
 });
@@ -170,7 +172,7 @@ function customizeGameSettings(name, matchPoint) {
 function initializeGame() {
   const currentRound = cardMessage.querySelector('.current-round-number');
   const currentScore = cardMessage.querySelector('.current-score');
-  currentRound.textContent = `ROUND: ${game.currentRound}`;
+  currentRound.textContent = `ROUND ${game.currentRound}`;
   currentScore.textContent = `${game.playerScore} - ${game.computerScore}`;
 }
 
