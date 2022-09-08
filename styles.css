@@ -203,3 +203,10 @@ main .card-message .container p.current-score {
   color: black;
   font-size: 25px;
 }
+
+main .card-message .container p.current-round-number {
+  font-size: 1.5em;
+  font-family:Arial, Helvetica, sans-serif;
+  color: black;
+  text-shadow: 1px 1px pink;
+}
