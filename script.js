@@ -7,16 +7,6 @@ const computerCard = document.querySelector('.card-computer');
 const modalForm = modal.querySelector('form');
 const playRoundSection = cardMessage.querySelector('.play-round')
 
-modalForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  clearModal();
-  clearOverlay();
-  const name = e.target['player-name'].value;
-  const points = e.target['match-point'].value;
-  customizeGameSettings(name, points);
-  initializeGame();
-});
-
 
 const game = {
   firstPlay: true,
@@ -25,6 +15,70 @@ const game = {
   playerWeapon: null,
   computerWeapon: null,
   currentRound: 1,
+  matchPoint: null,
+}
+
+
+
+modalForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  clearModal();
+  clearOverlay();
+  const name = e.target['player-name'].value;
+  const points = e.target['match-point'].value;
+  game.matchPoint = points;
+  customizeGameSettings(name, points);
+  initializeGame();
+});
+
+
+playRoundSection.addEventListener('click', (e) => {
+
+  if ( e.target.tagName === 'IMG') {
+    //update current round
+    updateCurrentRound();
+    //display weapon for player
+    const clickedWeapon = e.target.id;
+    displayPlayerWeapon(clickedWeapon);
+    //display weapon for computer
+    displayCompWeapon();
+
+    // determine round result
+    const roundResult = determineRoundResult();
+    //update round result
+    displayRoundResult(roundResult)
+    // update Current score
+    updateCurrentScore(roundResult);
+    //  prompt player to act
+    promptPlayerToPlayRound(roundResult);
+    // check if player or computer is 1 point away from match point
+    checkForMatchPoint(roundResult);
+    game.firstPlay = false;
+  }
+
+});
+
+
+function checkForMatchPoint(result) {
+  const beforeMatchPoint = game.matchPoint - 1;
+  const matchPoint = game.matchPoint;
+  const message = cardMessage.querySelector('.message');
+
+  if (game.playerScore === beforeMatchPoint && game.computerScore === beforeMatchPoint) {
+    message.textContent = 'Next round WINS the match!';
+  } else if (game.playerScore === beforeMatchPoint || game.computerScore === beforeMatchPoint) {
+    if (result === 'win') {
+      message.textContent = 'You\'re one point away from winning.';
+    } else if (result === 'lose') {
+      message.textContent = 'You\'re one point away from losing.';
+    }
+  } else if (game.playerScore === game.matchPoint || game.computerScore === game.matchPoint) {
+    endGame();
+  }
+}
+
+function endGame() {
+
 }
 
 
@@ -61,30 +115,6 @@ function updateCurrentRound() {
   currentRoundUI.textContent = `ROUND ${game.currentRound}`;
 }
 
-
-playRoundSection.addEventListener('click', (e) => {
-
-  if ( e.target.tagName === 'IMG') {
-    //update current round
-    updateCurrentRound();
-    //display weapon for player
-    const clickedWeapon = e.target.id;
-    displayPlayerWeapon(clickedWeapon);
-    //display weapon for computer
-    displayCompWeapon();
-
-    // determine round result
-    const roundResult = determineRoundResult();
-    //update round result
-    displayRoundResult(roundResult)
-    // update Current score
-    updateCurrentScore(roundResult);
-    //  prompt player to act
-    promptPlayerToPlayRound(roundResult);
-    game.firstPlay = false;
-  }
-
-});
 
 function promptPlayerToPlayRound(result) {
   const promptMessage = cardMessage.querySelector('.message');
