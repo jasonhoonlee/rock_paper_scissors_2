@@ -160,11 +160,11 @@ function determineRoundResult() {
 function displayRoundResult(roundResult) {
   const currentRoundResult = cardMessage.querySelector('.current-round-result');
   if (roundResult === 'win') {
-    currentRoundResult.textContent = 'YOU WIN THIS ROUND!';
+    currentRoundResult.textContent = 'OH! You got me!';
   } else if (roundResult === 'lose') {
-    currentRoundResult.textContent = 'YOU LOSE THIS ROUND...';
+    currentRoundResult.textContent = 'NOPE! Nice try!';
   } else {
-    currentRoundResult.textContent = 'IT\'S A DRAW THIS ROUND.';
+    currentRoundResult.textContent = 'It\'s a DRAW!';
   }
 }
 
