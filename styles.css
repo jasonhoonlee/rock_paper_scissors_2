@@ -200,7 +200,7 @@ main .card-message .container p.current-round-result  {
 }
 
 main .card-message .container p.current-score {
-  color: black;
+  color: orange;
   font-size: 25px;
 }
 
