@@ -58,11 +58,7 @@ function updateCurrentScore(roundResult) {
 }
 
 function updateCurrentRound() {
-  if (game.firstPlay === false) {
-    game.currentRound += 1;
-  } else {
-    game.firstPlay = false ;
-  }
+  game.currentRound += 1;
   const currentRoundUI = cardMessage.querySelector('.current-round-number');
   currentRoundUI.textContent = `ROUND ${game.currentRound}`;
 }
@@ -71,6 +67,8 @@ function updateCurrentRound() {
 playRoundSection.addEventListener('click', (e) => {
 
   if ( e.target.tagName === 'IMG') {
+    //update current round
+    updateCurrentRound();
     //display weapon for player
     const clickedWeapon = e.target.id;
     displayPlayerWeapon(clickedWeapon);
@@ -83,8 +81,7 @@ playRoundSection.addEventListener('click', (e) => {
     displayRoundResult(roundResult)
     // update Current score
     updateCurrentScore(roundResult);
-    //update current round
-    updateCurrentRound();
+    game.firstPlay = false;
   }
 
 });
@@ -177,7 +174,6 @@ function customizeGameSettings(name, matchPoint) {
 function startGame() {
   updateCurrentRound();
   updateCurrentScore();
-  game.firstPlay = false;
 }
 
 
