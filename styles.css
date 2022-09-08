@@ -210,3 +210,14 @@ main .card-message .container p.current-round-number {
   color: black;
   text-shadow: 1px 1px pink;
 }
+
+main .card-message .container .prompt-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+main .card-message .container p.message {
+  color: orange;
+}

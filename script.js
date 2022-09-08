@@ -79,10 +79,19 @@ playRoundSection.addEventListener('click', (e) => {
     displayRoundResult(roundResult)
     // update Current score
     updateCurrentScore(roundResult);
+    //  prompt player to act
+    promptPlayerToPlayRound(roundResult);
     game.firstPlay = false;
   }
 
 });
+
+function promptPlayerToPlayRound(result) {
+  const promptMessage = cardMessage.querySelector('.message');
+  if (result === 'win') promptMessage.textContent = 'NO! Let\'s go again!';
+  else if (result === 'lose') promptMessage.textContent = 'AHA! Let\'s go again!';
+  else promptMessage.textContent = 'Go again!';
+}
 
 
 
