@@ -5,8 +5,7 @@ const playerCard = document.querySelector('.card-player');
 const cardMessage = document.querySelector('.card-message');
 const computerCard = document.querySelector('.card-computer');
 const modalForm = modal.querySelector('form');
-const playRoundSection = document.querySelector('.play-round');
-
+const playRoundSection = cardMessage.querySelector('.play-round')
 
 modalForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -53,8 +52,6 @@ function updateCurrentScore(roundResult) {
   if (game.firstPlay === false) {
       if (roundResult === 'win') game.playerScore += 1;
       else if (roundResult === 'lose' ) game.computerScore += 1;
-  } else {
-     game.firstPlay = true;
   }
   const currentScoreUI = cardMessage.querySelector('.current-score');
   currentScoreUI.textContent = `${game.playerScore} - ${game.computerScore}`;
