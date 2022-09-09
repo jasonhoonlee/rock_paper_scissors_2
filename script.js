@@ -114,7 +114,7 @@ function announceWinner(winner) {
 function askPlayerToPlayAgain() {
   const gameRestartBanner = document.createElement('div');
   const question = document.createElement('p');
-  const buttonsSection = document.createElement('section');
+  const buttonsSection = document.createElement('span');
   const yesButton  = document.createElement('button');
   const noButton = document.createElement('button');
 

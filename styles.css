@@ -233,3 +233,25 @@ main .card-message .container .message.hide {
 .play-round.hide {
   display: none;
 }
+
+.restart-banner {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.restart-banner .question {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bolder;
+}
+
+.buttons-section {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.buttons-section .yes:hover,
+.buttons-section .no:hover {
+  opacity:50%;
+}
