@@ -25,7 +25,7 @@ modalForm.addEventListener('submit', (e) => {
   clearModal();
   clearOverlay();
   const name = e.target['player-name'].value;
-  const points = e.target['match-point'].value;
+  const points = Number(e.target['match-point'].value);
   game.matchPoint = points;
   customizeGameSettings(name, points);
   initializeGame();
@@ -64,21 +64,48 @@ function checkForMatchPoint(result) {
   const matchPoint = game.matchPoint;
   const message = cardMessage.querySelector('.message');
 
-  if (game.playerScore === beforeMatchPoint && game.computerScore === beforeMatchPoint) {
+  if (game.playerScore === matchPoint || game.computerScore === matchPoint) {
+    let winner;
+    if (result === 'win') winner = 'Player';
+    else if (result === 'lose') winner = 'Computer';
+    endGame(winner);
+  } else if (game.playerScore === beforeMatchPoint && game.computerScore === beforeMatchPoint) {
     message.textContent = 'Next round WINS the match!';
   } else if (game.playerScore === beforeMatchPoint || game.computerScore === beforeMatchPoint) {
-    if (result === 'win') {
-      message.textContent = 'You\'re one point away from winning.';
-    } else if (result === 'lose') {
-      message.textContent = 'You\'re one point away from losing.';
+    if (game.playerScore === beforeMatchPoint) {
+      message.textContent = 'Win the next round, you win the game!';
+    } else if (game.computerScore === beforeMatchPoint) {
+      message.textContent = 'Lose next round, you lose the game.';
     }
-  } else if (game.playerScore === game.matchPoint || game.computerScore === game.matchPoint) {
-    endGame();
   }
 }
 
-function endGame() {
+function endGame(winner) {
+  //hide weapons
+  hideWeaponButtons()
+  //hide round result
+  hideRoundResult();
+  //Display winner
+  announceWinner(winner);
+}
 
+function hideWeaponButtons() {
+  playRoundSection.classList.add('hide');
+}
+
+function hideRoundResult() {
+  const roundResultDisplay = cardMessage.querySelector('.current-round-result');
+  roundResultDisplay.classList.add('hide');
+}
+
+function announceWinner(winner) {
+  const promptMessage = cardMessage.querySelector('.message');
+  if (winner === 'Computer') promptMessage.textContent = `Sorry, ${winner} wins the match...`;
+  else promptMessage.textContent = `You win the match!`;
+  //change color
+  promptMessage.style.fontSize = '30px'
+  //give it text border
+  promptMessage.style.textShadow = '2px 2px red'
 }
 
 

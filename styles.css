@@ -211,13 +211,25 @@ main .card-message .container p.current-round-number {
   text-shadow: 1px 1px pink;
 }
 
+main .card-message .container p.current-round-number.hide {
+  display: none;
+}
+
 main .card-message .container .prompt-message {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-
 main .card-message .container p.message {
   color: yellow;
+}
+
+
+main .card-message .container .message.hide {
+  display: none;
+}
+
+.play-round.hide {
+  display: none;
 }
