@@ -87,6 +87,8 @@ function endGame(winner) {
   hideRoundResult();
   //Display winner
   announceWinner(winner);
+  //ask player to play again
+  askPlayerToPlayAgain();
 }
 
 function hideWeaponButtons() {
@@ -106,6 +108,33 @@ function announceWinner(winner) {
   promptMessage.style.fontSize = '30px'
   //give it text border
   promptMessage.style.textShadow = '2px 2px red'
+}
+
+
+function askPlayerToPlayAgain() {
+  const gameRestartBanner = document.createElement('div');
+  const question = document.createElement('p');
+  const buttonsSection = document.createElement('section');
+  const yesButton  = document.createElement('button');
+  const noButton = document.createElement('button');
+
+  gameRestartBanner.classList.add('restart-banner');
+  question.classList.add('question');
+  buttonsSection.classList.add('buttons-section');
+  yesButton.classList.add('yes');
+  noButton.classList.add('no');
+
+  question.textContent = 'Play again?';
+  yesButton.textContent = 'YES';
+  noButton.textContent = 'NO';
+
+  buttonsSection.append(yesButton);
+  buttonsSection.append(noButton);
+
+  gameRestartBanner.append(question);
+  gameRestartBanner.append(buttonsSection);
+
+  cardMessage.append(gameRestartBanner);
 }
 
 
