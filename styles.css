@@ -230,28 +230,22 @@ main .card-message .container .message.hide {
   display: none;
 }
 
+main .card-message .container p.current-round-result.hide {
+  display: none;
+}
+
 .play-round.hide {
   display: none;
 }
 
-.restart-banner {
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
+.play-again-section {
+  display: inline;
 }
 
-.restart-banner .question {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: bolder;
+.play-again-btn {
+  margin-top: 5vh;
 }
 
-.buttons-section {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-.buttons-section .yes:hover,
-.buttons-section .no:hover {
-  opacity:50%;
+.play-again-btn:hover {
+  opacity: 75%;
 }

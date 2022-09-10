@@ -5,7 +5,7 @@ const playerCard = document.querySelector('.card-player');
 const cardMessage = document.querySelector('.card-message');
 const computerCard = document.querySelector('.card-computer');
 const modalForm = modal.querySelector('form');
-const playRoundSection = cardMessage.querySelector('.play-round')
+const playRoundSection = cardMessage.querySelector('.play-round');
 
 
 const game = {
@@ -33,30 +33,24 @@ modalForm.addEventListener('submit', (e) => {
 
 
 playRoundSection.addEventListener('click', (e) => {
-
   if ( e.target.tagName === 'IMG') {
-    //update current round
     updateCurrentRound();
-    //display weapon for player
     const clickedWeapon = e.target.id;
     displayPlayerWeapon(clickedWeapon);
-    //display weapon for computer
     displayCompWeapon();
-
-    // determine round result
     const roundResult = determineRoundResult();
-    //update round result
     displayRoundResult(roundResult)
-    // update Current score
     updateCurrentScore(roundResult);
-    //  prompt player to act
     promptPlayerToPlayRound(roundResult);
-    // check if player or computer is 1 point away from match point
     checkForMatchPoint(roundResult);
     game.firstPlay = false;
   }
-
 });
+
+cardMessage.addEventListener('click', (e) => {
+  const clickedItem = e.target;
+  if (clickedItem.classList.contains('play-again-btn')) location.reload();
+})
 
 
 function checkForMatchPoint(result) {
@@ -81,14 +75,10 @@ function checkForMatchPoint(result) {
 }
 
 function endGame(winner) {
-  //hide weapons
   hideWeaponButtons()
-  //hide round result
   hideRoundResult();
-  //Display winner
   announceWinner(winner);
-  //ask player to play again
-  askPlayerToPlayAgain();
+  displayPlayAgainBtn();
 }
 
 function hideWeaponButtons() {
@@ -111,32 +101,17 @@ function announceWinner(winner) {
 }
 
 
-function askPlayerToPlayAgain() {
-  const gameRestartBanner = document.createElement('div');
-  const question = document.createElement('p');
-  const buttonsSection = document.createElement('span');
-  const yesButton  = document.createElement('button');
-  const noButton = document.createElement('button');
+function displayPlayAgainBtn() {
+  const playAgainSection = document.createElement('section');
+  const playAgainButton  = document.createElement('button');
 
-  gameRestartBanner.classList.add('restart-banner');
-  question.classList.add('question');
-  buttonsSection.classList.add('buttons-section');
-  yesButton.classList.add('yes');
-  noButton.classList.add('no');
+  playAgainSection.classList.add('play-again-section');
+  playAgainButton.classList.add('play-again-btn');
+  playAgainButton.textContent = 'PLAY AGAIN!'
 
-  question.textContent = 'Play again?';
-  yesButton.textContent = 'YES';
-  noButton.textContent = 'NO';
-
-  buttonsSection.append(yesButton);
-  buttonsSection.append(noButton);
-
-  gameRestartBanner.append(question);
-  gameRestartBanner.append(buttonsSection);
-
-  cardMessage.append(gameRestartBanner);
+  playAgainSection.append(playAgainButton);
+  cardMessage.append(playAgainSection);
 }
-
 
 function clearModal() {
   modal.classList.remove('on');
