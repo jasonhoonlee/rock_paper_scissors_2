@@ -84,6 +84,10 @@ function clearPromptMessage() {
   promptMessage.textContent = '';
 }
 
+function clearRPSCallBanner() {
+  const rpsCallBanner = document.querySelector('.rps-call');
+  rpsCallBanner.textContent = '';
+}
 
 
 function temporarilyDisableWeaponButtons() {
@@ -143,6 +147,7 @@ function hideRoundResult() {
 }
 
 function announceWinner(winner) {
+  clearRPSCallBanner();
   const promptMessage = cardMessage.querySelector('.message');
   if (winner === 'Computer') promptMessage.textContent = `Sorry, ${winner} wins the match...`;
   else promptMessage.textContent = `You win the match!`;
