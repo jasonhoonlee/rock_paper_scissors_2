@@ -249,3 +249,10 @@ main .card-message .container p.current-round-result.hide {
 .play-again-btn:hover {
   opacity: 75%;
 }
+
+.rps-call {
+  font-size: 30px;
+  font-weight: bolder;
+  color: yellow;
+  text-shadow: 2px 2px red;
+}

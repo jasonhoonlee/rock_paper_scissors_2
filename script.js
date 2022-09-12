@@ -36,18 +36,54 @@ playRoundSection.addEventListener('click', (e) => {
   const eventTarget = e.target;
   if (eventTarget.tagName === 'IMG' && !eventTarget.disabled) {
     updateCurrentRound();
-    const clickedWeapon = e.target.id;
-    displayPlayerWeapon(clickedWeapon);
-    displayCompWeapon();
-    const roundResult = determineRoundResult();
-    displayRoundResult(roundResult)
-    updateCurrentScore(roundResult);
-    promptPlayerToPlayRound(roundResult);
-    checkForMatchPoint(roundResult);
-    game.firstPlay = false;
+    clearWeaponsUIForAllPlayers();
+    clearRoundResult();
+    clearPromptMessage();
+    callRockPaperScissors();
+
+    setTimeout( () => {
+      const clickedWeapon = e.target.id;
+      displayPlayerWeapon(clickedWeapon);
+      displayCompWeapon();
+      const roundResult = determineRoundResult();
+      displayRoundResult(roundResult)
+      updateCurrentScore(roundResult);
+      promptPlayerToPlayRound(roundResult);
+      checkForMatchPoint(roundResult);
+      game.firstPlay = false;
+    }, 3000)
   }
   temporarilyDisableWeaponButtons();
 });
+
+
+function callRockPaperScissors() {
+  const rpsCallBanner = document.querySelector('.rps-call');
+  rpsCallBanner.textContent = '';
+  rpsCallBanner.textContent += 'ROCK! ';
+  setTimeout(() => {rpsCallBanner.textContent += 'PAPER! '}, 1000);
+  setTimeout(() => {rpsCallBanner.textContent += 'SCISSORS! '}, 2000);
+  setTimeout(() => {rpsCallBanner.textContent += 'GO!'}, 3000);
+}
+
+function clearWeaponsUIForAllPlayers() {
+  const playerWeapon = playerCard.querySelector('.weapon-image');
+  const computerWeapon = computerCard.querySelector('.weapon-image');
+  playerWeapon.innerHTML = '';
+  computerWeapon.innerHTML = '';
+}
+
+function clearRoundResult() {
+  const roundResult = document.querySelector('.current-round-result');
+  roundResult.textContent = '';
+
+}
+
+function clearPromptMessage() {
+  const promptMessage = document.querySelector('.message');
+  promptMessage.textContent = '';
+}
+
 
 
 function temporarilyDisableWeaponButtons() {
