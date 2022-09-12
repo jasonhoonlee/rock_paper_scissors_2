@@ -33,7 +33,8 @@ modalForm.addEventListener('submit', (e) => {
 
 
 playRoundSection.addEventListener('click', (e) => {
-  if ( e.target.tagName === 'IMG') {
+  const eventTarget = e.target;
+  if (eventTarget.tagName === 'IMG' && !eventTarget.disabled) {
     updateCurrentRound();
     const clickedWeapon = e.target.id;
     displayPlayerWeapon(clickedWeapon);
@@ -45,7 +46,22 @@ playRoundSection.addEventListener('click', (e) => {
     checkForMatchPoint(roundResult);
     game.firstPlay = false;
   }
+  temporarilyDisableWeaponButtons();
 });
+
+
+function temporarilyDisableWeaponButtons() {
+  const weaponButtons = Array.from(playRoundSection.querySelectorAll('img'));
+  weaponButtons.forEach(weapon => weapon.disabled = true);
+  setTimeout(enableAllWeaponButtons, 2000);
+}
+
+
+function enableAllWeaponButtons() {
+  const weaponButtons = Array.from(playRoundSection.querySelectorAll('img'));
+  weaponButtons.forEach(weapon => weapon.disabled = false);
+}
+
 
 cardMessage.addEventListener('click', (e) => {
   const clickedItem = e.target;
@@ -94,9 +110,7 @@ function announceWinner(winner) {
   const promptMessage = cardMessage.querySelector('.message');
   if (winner === 'Computer') promptMessage.textContent = `Sorry, ${winner} wins the match...`;
   else promptMessage.textContent = `You win the match!`;
-  //change color
   promptMessage.style.fontSize = '30px'
-  //give it text border
   promptMessage.style.textShadow = '2px 2px red'
 }
 
@@ -104,11 +118,9 @@ function announceWinner(winner) {
 function displayPlayAgainBtn() {
   const playAgainSection = document.createElement('section');
   const playAgainButton  = document.createElement('button');
-
   playAgainSection.classList.add('play-again-section');
   playAgainButton.classList.add('play-again-btn');
   playAgainButton.textContent = 'PLAY AGAIN!'
-
   playAgainSection.append(playAgainButton);
   cardMessage.append(playAgainSection);
 }
@@ -152,16 +164,6 @@ function promptPlayerToPlayRound(result) {
   if (result === 'win') promptMessage.textContent = 'NO! Let\'s go again!';
   else if (result === 'lose') promptMessage.textContent = 'AHA! Let\'s go again!';
   else promptMessage.textContent = 'Go again!';
-}
-
-
-
-function callOutRockPaperScissors() {
-  const gameCall = cardMessage.querySelector('.game-call');
-  setTimeout(() => gameCall.textContent += 'ROCK! ', 500);
-  setTimeout(() => gameCall.textContent += 'PAPER! ', 1500);
-  setTimeout(() => gameCall.textContent += 'SCISSORS!', 2500);
-  setTimeout(() => gameCall.textContent = '', 3500);
 }
 
 function randomlyGenerateWeapon(){
